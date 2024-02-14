@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dohyo Jeong - Assignment02</title>
+<title>Dohyo Jeong - Assignment03</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -201,12 +201,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lab" id="toc-lab" class="nav-link active" data-scroll-target="#lab">1. Lab</a></li>
-  <li><a href="#review-chapters-3" id="toc-review-chapters-3" class="nav-link" data-scroll-target="#review-chapters-3">2. Review Chapters 3</a></li>
-  <li><a href="#what-problems-do-you-encounter-when-working-with-the-dataset" id="toc-what-problems-do-you-encounter-when-working-with-the-dataset" class="nav-link" data-scroll-target="#what-problems-do-you-encounter-when-working-with-the-dataset">3. What problems do you encounter when working with the dataset?</a></li>
-  <li><a href="#how-to-deal-with-missing-values" id="toc-how-to-deal-with-missing-values" class="nav-link" data-scroll-target="#how-to-deal-with-missing-values">4. How to deal with missing values?</a></li>
-  <li><a href="#explore-the-relationship-between-tondu-and-other-variables" id="toc-explore-the-relationship-between-tondu-and-other-variables" class="nav-link" data-scroll-target="#explore-the-relationship-between-tondu-and-other-variables">5. Explore the relationship between Tondu and other variables</a></li>
-  <li><a href="#how-about-the-votetsai-variable" id="toc-how-about-the-votetsai-variable" class="nav-link" data-scroll-target="#how-about-the-votetsai-variable">6. How about the ‘votetsai’ variable?</a></li>
+  <li><a href="#use-the-teds2016-dataset-to-run-a-multiple-regression-model" id="toc-use-the-teds2016-dataset-to-run-a-multiple-regression-model" class="nav-link active" data-scroll-target="#use-the-teds2016-dataset-to-run-a-multiple-regression-model">Use the TEDS2016 dataset to run a multiple regression model</a></li>
+  <li><a href="#write-a-function-called-regplot-to-plot-a-regression-line" id="toc-write-a-function-called-regplot-to-plot-a-regression-line" class="nav-link" data-scroll-target="#write-a-function-called-regplot-to-plot-a-regression-line">Write a function called regplot to plot a regression line</a></li>
+  <li><a href="#run-a-regplot-on-the-dependent-variable-using-a.-age-b.-education-c.-income" id="toc-run-a-regplot-on-the-dependent-variable-using-a.-age-b.-education-c.-income" class="nav-link" data-scroll-target="#run-a-regplot-on-the-dependent-variable-using-a.-age-b.-education-c.-income">Run a regplot on the dependent variable using: a. Age b. Education c.&nbsp;Income</a>
+  <ul class="collapse">
+  <li><a href="#age" id="toc-age" class="nav-link" data-scroll-target="#age">1) Age</a></li>
+  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">2) Education</a></li>
+  <li><a href="#income" id="toc-income" class="nav-link" data-scroll-target="#income">3) Income</a></li>
+  </ul></li>
+  <li><a href="#what-is-the-problem-why" id="toc-what-is-the-problem-why" class="nav-link" data-scroll-target="#what-is-the-problem-why">What is the problem? Why?</a></li>
+  <li><a href="#what-can-be-done-to-improve-prediction-of-the-dependent-variable" id="toc-what-can-be-done-to-improve-prediction-of-the-dependent-variable" class="nav-link" data-scroll-target="#what-can-be-done-to-improve-prediction-of-the-dependent-variable">What can be done to improve prediction of the dependent variable?</a></li>
   </ul>
 </nav>
     </div>
@@ -215,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment02</h1>
+<h1 class="title">Assignment03</h1>
 </div>
 
 
@@ -230,12 +234,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="lab" class="level1">
-<h1>1. Lab</h1>
-<p>Please check the Lab01, and Lab02 part.</p>
-</section>
-<section id="review-chapters-3" class="level1">
-<h1>2. Review Chapters 3</h1>
+<section id="use-the-teds2016-dataset-to-run-a-multiple-regression-model" class="level1">
+<h1>Use the TEDS2016 dataset to run a multiple regression model</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
@@ -368,114 +368,154 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 </section>
-<section id="what-problems-do-you-encounter-when-working-with-the-dataset" class="level1">
-<h1>3. What problems do you encounter when working with the dataset?</h1>
-<ul>
-<li><p>Check for missing values.</p></li>
-<li><p>Inspect the data types of variables.</p></li>
-<li><p>Identify any outliers or inconsistencies in the data.</p></li>
-<li><p>Assess the distribution of variables.</p></li>
-<li><p>Look for any unexpected or illogical values.</p></li>
-<li><p>Examine variable names and labels for clarity and consistency.</p></li>
-</ul>
-</section>
-<section id="how-to-deal-with-missing-values" class="level1">
-<h1>4. How to deal with missing values?</h1>
-<ul>
-<li><p>Impute missing values using techniques such as mean, median, mode, or predictive modeling.</p></li>
-<li><p>Remove observations with missing values if they are negligible compared to the total dataset.</p></li>
-<li><p>Analyze patterns of missingness and consider whether they are missing completely at random (MCAR), missing at random (MAR), or missing not at random (MNAR).</p></li>
-<li><p>Use multiple imputation methods if appropriate.</p></li>
-</ul>
-</section>
-<section id="explore-the-relationship-between-tondu-and-other-variables" class="level1">
-<h1>5. Explore the relationship between Tondu and other variables</h1>
+<section id="write-a-function-called-regplot-to-plot-a-regression-line" class="level1">
+<h1>Write a function called regplot to plot a regression line</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the data for female = 0 and female = 1</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>TEDS_female_0 <span class="ot">&lt;-</span> TEDS_2016[TEDS_2016<span class="sc">$</span>female <span class="sc">==</span> <span class="dv">0</span>, ]</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>TEDS_female_1 <span class="ot">&lt;-</span> TEDS_2016[TEDS_2016<span class="sc">$</span>female <span class="sc">==</span> <span class="dv">1</span>, ]</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a colorful boxplot</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(TEDS_2016, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(female), <span class="at">y =</span> Tondu, <span class="at">fill =</span> <span class="fu">factor</span>(female))) <span class="sc">+</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>)) <span class="sc">+</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Female"</span>, <span class="at">y =</span> <span class="st">"Tondu"</span>, <span class="at">title =</span> <span class="st">"Boxplot of Tondu by Female"</span>) <span class="sc">+</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="Assignment02_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a frequency table for Tondu by Female</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>frequency_table <span class="ot">&lt;-</span> <span class="fu">with</span>(TEDS_2016, <span class="fu">table</span>(Tondu, female))</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the frequency table to a data frame</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>frequency_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(frequency_table)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the columns for better clarity</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(frequency_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Tondu"</span>, <span class="st">"Female"</span>, <span class="st">"Frequency"</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a colorful bar graph</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(frequency_df, <span class="fu">aes</span>(<span class="at">x =</span> Tondu, <span class="at">y =</span> Frequency, <span class="at">fill =</span> <span class="fu">factor</span>(Female))) <span class="sc">+</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>)) <span class="sc">+</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Tondu"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>, <span class="at">fill =</span> <span class="st">"Female"</span>) <span class="sc">+</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Frequency of Tondu by Female"</span>) <span class="sc">+</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="Assignment02_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Creating a function: regplot </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Combine the lm, plot and abline functions to create a regression fit plot function </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>regplot<span class="ot">=</span><span class="cf">function</span>(x,y){</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  fit<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x,y)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(fit,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="how-about-the-votetsai-variable" class="level1">
-<h1>6. How about the ‘votetsai’ variable?</h1>
+<section id="run-a-regplot-on-the-dependent-variable-using-a.-age-b.-education-c.-income" class="level1">
+<h1>Run a regplot on the dependent variable using: a. Age b. Education c.&nbsp;Income</h1>
+<section id="age" class="level2">
+<h2 class="anchored" data-anchor-id="age">1) Age</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create frequency table for votetsai variable</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>votetsai_freq <span class="ot">&lt;-</span> <span class="fu">table</span>(TEDS_2016<span class="sc">$</span>votetsai)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert frequency table to data frame</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>votetsai_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(votetsai_freq)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(votetsai_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Vote"</span>, <span class="st">"Frequency"</span>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar plot of votetsai variable</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(votetsai_freq, <span class="at">main =</span> <span class="st">"Votes for Tsai Ing-wen"</span>,</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Vote"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="Assignment02_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie chart of votetsai variable</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(votetsai_freq, <span class="at">main =</span> <span class="st">"Votes for Tsai Ing-wen"</span>, </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> votetsai_freq, <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(votetsai_freq)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="Assignment02_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Table of votetsai variable</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(votetsai_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(TEDS_2016<span class="sc">$</span>Age<span class="sc">~</span>TEDS_2016<span class="sc">$</span>votetsai))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Vote Frequency
-1    0       471
-2    1       790</code></pre>
+<pre><code>
+Call:
+lm(formula = TEDS_2016$Age ~ TEDS_2016$votetsai)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.4671 -1.2848  0.5329  1.5329  1.7152 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         3.46709    0.06555  52.890   &lt;2e-16 ***
+TEDS_2016$votetsai -0.18228    0.08282  -2.201   0.0279 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.423 on 1259 degrees of freedom
+  (429 observations deleted due to missingness)
+Multiple R-squared:  0.003833,  Adjusted R-squared:  0.003042 
+F-statistic: 4.844 on 1 and 1259 DF,  p-value: 0.02792</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar graph of votetsai variable with ggplot2</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(votetsai_df, <span class="fu">aes</span>(<span class="at">x =</span> Vote, <span class="at">y =</span> Frequency, <span class="at">fill =</span> Vote)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Vote"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>, <span class="at">fill =</span> <span class="st">"Vote"</span>) <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Votes for Tsai Ing-wen"</span>) <span class="sc">+</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Allow extra room for additional arguments/specifications</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>regplot<span class="ot">=</span><span class="cf">function</span>(x,y,...){</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  fit<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x,y,...)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(fit,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}  <span class="co"># "..." is called ellipsis, which is designed to take any number of named or unnamed arguments.</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">regplot</span>(TEDS_2016<span class="sc">$</span>Age,TEDS_2016<span class="sc">$</span>votetsai, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"Age"</span>,<span class="at">ylab=</span><span class="st">"Votes for Tsai Ing-wen"</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Assignment02_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" width="672"></p>
+<p><img src="Assignment03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="education" class="level2">
+<h2 class="anchored" data-anchor-id="education">2) Education</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(TEDS_2016<span class="sc">$</span>Edu<span class="sc">~</span>TEDS_2016<span class="sc">$</span>votetsai))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = TEDS_2016$Edu ~ TEDS_2016$votetsai)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.4692 -1.2608 -0.2608  1.5308  5.7392 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         3.46921    0.07053  49.190   &lt;2e-16 ***
+TEDS_2016$votetsai -0.20845    0.08910  -2.339   0.0195 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.531 on 1259 degrees of freedom
+  (429 observations deleted due to missingness)
+Multiple R-squared:  0.004328,  Adjusted R-squared:  0.003537 
+F-statistic: 5.473 on 1 and 1259 DF,  p-value: 0.01947</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Allow extra room for additional arguments/specifications</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>regplot<span class="ot">=</span><span class="cf">function</span>(x,y,...){</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  fit<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x,y,...)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(fit,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>}  <span class="co"># "..." is called ellipsis, which is designed to take any number of named or unnamed arguments.</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">regplot</span>(TEDS_2016<span class="sc">$</span>Edu,TEDS_2016<span class="sc">$</span>votetsai, </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"Age"</span>,<span class="at">ylab=</span><span class="st">"Votes for Tsai Ing-wen"</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Assignment03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="income" class="level2">
+<h2 class="anchored" data-anchor-id="income">3) Income</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(TEDS_2016<span class="sc">$</span>income<span class="sc">~</span>TEDS_2016<span class="sc">$</span>votetsai))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = TEDS_2016$income ~ TEDS_2016$votetsai)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.5329 -2.2304  0.2696  2.4671  4.7696 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)          5.5329     0.1291  42.845   &lt;2e-16 ***
+TEDS_2016$votetsai  -0.3025     0.1632  -1.854   0.0639 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.803 on 1259 degrees of freedom
+  (429 observations deleted due to missingness)
+Multiple R-squared:  0.002724,  Adjusted R-squared:  0.001931 
+F-statistic: 3.438 on 1 and 1259 DF,  p-value: 0.06393</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Allow extra room for additional arguments/specifications</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>regplot<span class="ot">=</span><span class="cf">function</span>(x,y,...){</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  fit<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x,y,...)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(fit,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>}  <span class="co"># "..." is called ellipsis, which is designed to take any number of named or unnamed arguments.</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">regplot</span>(TEDS_2016<span class="sc">$</span>income,TEDS_2016<span class="sc">$</span>votetsai, </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"Age"</span>,<span class="at">ylab=</span><span class="st">"Votes for Tsai Ing-wen"</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Assignment03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="what-is-the-problem-why" class="level1">
+<h1>What is the problem? Why?</h1>
+<ul>
+<li><p><strong><em>If we’re attempting to run a linear regression with a categorical variable as the dependent variable, we would likely encounter issues because linear regression is typically used for predicting continuous outcomes. Categorical variables represent discrete categories or groups, not continuous values.</em></strong></p></li>
+<li><p><strong><em>Linear regression assumes that the dependent variable is continuous and normally distributed. When the dependent variable is categorical, it violates these assumptions, leading to unreliable results and invalid interpretations.</em></strong></p></li>
+<li><p><strong><em>If we want to predict or model categorical outcomes, we would typically use techniques like logistic regression (for binary outcomes) or multinomial logistic regression (for multiple categorical outcomes). These methods are specifically designed to handle categorical dependent variables by modeling the probability of belonging to each category.</em></strong></p></li>
+</ul>
+</section>
+<section id="what-can-be-done-to-improve-prediction-of-the-dependent-variable" class="level1">
+<h1>What can be done to improve prediction of the dependent variable?</h1>
+<p>Improving the prediction of the dependent variable depends on various factors including the nature of your data, the relationships between variables, and the specific problem you’re trying to solve. Here are several strategies that can generally help improve prediction:</p>
+<ul>
+<li><p><strong><em>Model Selection</em></strong>: Experiment with different types of models that are suitable for your data and problem. Besides linear regression, consider other algorithms like decision trees, random forests, support vector machines, gradient boosting machines, neural networks, etc. Each model has its strengths and weaknesses, and the best one often depends on the specific characteristics of your data.</p></li>
+<li><p><strong><em>Cross-Validation</em></strong>: Use techniques like k-fold cross-validation to evaluate the performance of your model on multiple subsets of the data. This helps in assessing the generalizability of the model and identifying potential overfitting issues.</p></li>
+<li><p><strong><em>Ensemble Methods</em></strong>: Combine multiple models to leverage their collective strength and improve prediction accuracy. Ensemble techniques like bagging, boosting, and stacking can often produce better results than individual models.</p></li>
+<li><p><strong><em>Addressing Imbalance</em></strong>: If your data is imbalanced (i.e., one class of the dependent variable is significantly more prevalent than others), consider techniques such as oversampling, undersampling, or using specialized algorithms designed to handle imbalanced data.</p></li>
+<li><p><strong><em>Regularization</em></strong>: Apply regularization techniques like Lasso or Ridge regression to prevent overfitting and improve the generalization ability of your model.</p></li>
+<li><p><strong><em>Data Preprocessing</em></strong>: Ensure your data is clean, standardized, and properly preprocessed before feeding it into the model. This may involve handling missing values, encoding categorical variables, scaling numerical features, etc.</p></li>
+</ul>
 
 
 </section>
