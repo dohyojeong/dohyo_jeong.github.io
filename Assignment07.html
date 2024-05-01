@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Dohyo Jeong">
 
-<title>Dohyo Jeong - Assignment01</title>
+<title>Dohyo Jeong - Assignment07</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -235,13 +270,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#team-project" id="toc-team-project" class="nav-link active" data-scroll-target="#team-project">Team Project</a>
+  <li><a href="#knowledge-mining-logistic-regression" id="toc-knowledge-mining-logistic-regression" class="nav-link active" data-scroll-target="#knowledge-mining-logistic-regression">Knowledge Mining: Logistic Regression</a>
   <ul class="collapse">
-  <li><a href="#starting-with-data-or-research-question" id="toc-starting-with-data-or-research-question" class="nav-link" data-scroll-target="#starting-with-data-or-research-question">01 Starting with data or research question?</a></li>
-  <li><a href="#do-you-have-a-hypothesis" id="toc-do-you-have-a-hypothesis" class="nav-link" data-scroll-target="#do-you-have-a-hypothesis">02 Do you have a hypothesis?</a></li>
-  <li><a href="#how-data-can-be-collected-and-stored" id="toc-how-data-can-be-collected-and-stored" class="nav-link" data-scroll-target="#how-data-can-be-collected-and-stored">03 How data can be collected and stored?</a></li>
-  <li><a href="#what-methods-could-be-considered" id="toc-what-methods-could-be-considered" class="nav-link" data-scroll-target="#what-methods-could-be-considered">04 What methods could be considered?</a></li>
-  <li><a href="#collaboration-and-team-work" id="toc-collaboration-and-team-work" class="nav-link" data-scroll-target="#collaboration-and-team-work">05 Collaboration and team work</a></li>
+  <li><a href="#file-lab_logisticregression01.r" id="toc-file-lab_logisticregression01.r" class="nav-link" data-scroll-target="#file-lab_logisticregression01.r">File: Lab_logisticregression01.R</a></li>
+  <li><a href="#theme-logistic-regression" id="toc-theme-logistic-regression" class="nav-link" data-scroll-target="#theme-logistic-regression">Theme: Logistic regression</a></li>
+  <li><a href="#adapted-from-islr-chapter-4-lab" id="toc-adapted-from-islr-chapter-4-lab" class="nav-link" data-scroll-target="#adapted-from-islr-chapter-4-lab">Adapted from ISLR Chapter 4 Lab</a></li>
+  <li><a href="#bivariate-plot-of-inter-lag-correlations" id="toc-bivariate-plot-of-inter-lag-correlations" class="nav-link" data-scroll-target="#bivariate-plot-of-inter-lag-correlations">Bivariate Plot of inter-lag correlations</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic regression</a></li>
+  <li><a href="#make-training-and-test-set-for-prediction" id="toc-make-training-and-test-set-for-prediction" class="nav-link" data-scroll-target="#make-training-and-test-set-for-prediction">Make training and test set for prediction</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -251,13 +287,19 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment01</h1>
+<h1 class="title">Assignment07</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dohyo Jeong </p>
+          </div>
+  </div>
     
   
     
@@ -266,38 +308,165 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="team-project" class="level1">
-<h1>Team Project</h1>
-<section id="starting-with-data-or-research-question" class="level2">
-<h2 class="anchored" data-anchor-id="starting-with-data-or-research-question">01 Starting with data or research question?</h2>
-<ul>
-<li><p>“Which factors are significant in classifying and predicting government officers’ job satisfaction?”</p></li>
-<li><p>“Are there any variations in important factors across different countries?”</p></li>
-</ul>
+<section id="knowledge-mining-logistic-regression" class="level1">
+<h1>Knowledge Mining: Logistic Regression</h1>
+<section id="file-lab_logisticregression01.r" class="level3">
+<h3 class="anchored" data-anchor-id="file-lab_logisticregression01.r">File: Lab_logisticregression01.R</h3>
 </section>
-<section id="do-you-have-a-hypothesis" class="level2">
-<h2 class="anchored" data-anchor-id="do-you-have-a-hypothesis">02 Do you have a hypothesis?</h2>
-<ul>
-<li>Given that this study is grounded in machine learning, we do not have a specific hypothesis. Our primary objective is to identify and compare the significant factors influencing job satisfaction.</li>
-</ul>
+<section id="theme-logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="theme-logistic-regression">Theme: Logistic regression</h3>
 </section>
-<section id="how-data-can-be-collected-and-stored" class="level2">
-<h2 class="anchored" data-anchor-id="how-data-can-be-collected-and-stored">03 How data can be collected and stored?</h2>
-<ul>
-<li>We will collect and store data using national survey datasets from each respective country.</li>
-</ul>
+<section id="adapted-from-islr-chapter-4-lab" class="level3">
+<h3 class="anchored" data-anchor-id="adapted-from-islr-chapter-4-lab">Adapted from ISLR Chapter 4 Lab</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load ISLR library</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ISLR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ISLR</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ISLR' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check dataset Smarket</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#?Smarket</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Smarket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Year"      "Lag1"      "Lag2"      "Lag3"      "Lag4"      "Lag5"     
+[7] "Volume"    "Today"     "Direction"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Smarket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Year           Lag1                Lag2                Lag3          
+ Min.   :2001   Min.   :-4.922000   Min.   :-4.922000   Min.   :-4.922000  
+ 1st Qu.:2002   1st Qu.:-0.639500   1st Qu.:-0.639500   1st Qu.:-0.640000  
+ Median :2003   Median : 0.039000   Median : 0.039000   Median : 0.038500  
+ Mean   :2003   Mean   : 0.003834   Mean   : 0.003919   Mean   : 0.001716  
+ 3rd Qu.:2004   3rd Qu.: 0.596750   3rd Qu.: 0.596750   3rd Qu.: 0.596750  
+ Max.   :2005   Max.   : 5.733000   Max.   : 5.733000   Max.   : 5.733000  
+      Lag4                Lag5              Volume           Today          
+ Min.   :-4.922000   Min.   :-4.92200   Min.   :0.3561   Min.   :-4.922000  
+ 1st Qu.:-0.640000   1st Qu.:-0.64000   1st Qu.:1.2574   1st Qu.:-0.639500  
+ Median : 0.038500   Median : 0.03850   Median :1.4229   Median : 0.038500  
+ Mean   : 0.001636   Mean   : 0.00561   Mean   :1.4783   Mean   : 0.003138  
+ 3rd Qu.: 0.596750   3rd Qu.: 0.59700   3rd Qu.:1.6417   3rd Qu.: 0.596750  
+ Max.   : 5.733000   Max.   : 5.73300   Max.   :3.1525   Max.   : 5.733000  
+ Direction 
+ Down:602  
+ Up  :648  
+           
+           
+           
+           </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataframe for data browsing</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sm<span class="ot">=</span>Smarket</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="what-methods-could-be-considered" class="level2">
-<h2 class="anchored" data-anchor-id="what-methods-could-be-considered">04 What methods could be considered?</h2>
-<ul>
-<li>We will explore classification models such as decision trees, random forests, and XGBoost. Additionally, we will compare the performance of each model to determine the most suitable approach.</li>
-</ul>
+<section id="bivariate-plot-of-inter-lag-correlations" class="level3">
+<h3 class="anchored" data-anchor-id="bivariate-plot-of-inter-lag-correlations">Bivariate Plot of inter-lag correlations</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Smarket,<span class="at">col=</span>Smarket<span class="sc">$</span>Direction,<span class="at">cex=</span>.<span class="dv">5</span>, <span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Assignment07_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
-<section id="collaboration-and-team-work" class="level2">
-<h2 class="anchored" data-anchor-id="collaboration-and-team-work">05 Collaboration and team work</h2>
-<ul>
-<li>Our team comprises Dohyo Jeong (Coordinator), Jinju Suk, and Oswald Chau, who will collaborate closely throughout the project.</li>
-</ul>
+<section id="logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="logistic-regression">Logistic regression</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>glm.fit<span class="ot">=</span><span class="fu">glm</span>(Direction<span class="sc">~</span>Lag1<span class="sc">+</span>Lag2<span class="sc">+</span>Lag3<span class="sc">+</span>Lag4<span class="sc">+</span>Lag5<span class="sc">+</span>Volume,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>Smarket,<span class="at">family=</span>binomial)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm.fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 + 
+    Volume, family = binomial, data = Smarket)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept) -0.126000   0.240736  -0.523    0.601
+Lag1        -0.073074   0.050167  -1.457    0.145
+Lag2        -0.042301   0.050086  -0.845    0.398
+Lag3         0.011085   0.049939   0.222    0.824
+Lag4         0.009359   0.049974   0.187    0.851
+Lag5         0.010313   0.049511   0.208    0.835
+Volume       0.135441   0.158360   0.855    0.392
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1731.2  on 1249  degrees of freedom
+Residual deviance: 1727.6  on 1243  degrees of freedom
+AIC: 1741.6
+
+Number of Fisher Scoring iterations: 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>glm.probs<span class="ot">=</span><span class="fu">predict</span>(glm.fit,<span class="at">type=</span><span class="st">"response"</span>) </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>glm.probs[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1         2         3         4         5 
+0.5070841 0.4814679 0.4811388 0.5152224 0.5107812 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>glm.pred<span class="ot">=</span><span class="fu">ifelse</span>(glm.probs<span class="sc">&gt;</span><span class="fl">0.5</span>,<span class="st">"Up"</span>,<span class="st">"Down"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Smarket)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred,Direction)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Direction
+glm.pred Down  Up
+    Down  145 141
+    Up    457 507</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(glm.pred<span class="sc">==</span>Direction)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5216</code></pre>
+</div>
+</div>
+</section>
+<section id="make-training-and-test-set-for-prediction" class="level3">
+<h3 class="anchored" data-anchor-id="make-training-and-test-set-for-prediction">Make training and test set for prediction</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>train <span class="ot">=</span> Year<span class="sc">&lt;</span><span class="dv">2005</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>glm.fit<span class="ot">=</span><span class="fu">glm</span>(Direction<span class="sc">~</span>Lag1<span class="sc">+</span>Lag2<span class="sc">+</span>Lag3<span class="sc">+</span>Lag4<span class="sc">+</span>Lag5<span class="sc">+</span>Volume,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>Smarket,<span class="at">family=</span>binomial, <span class="at">subset=</span>train)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>glm.probs<span class="ot">=</span><span class="fu">predict</span>(glm.fit,<span class="at">newdata=</span>Smarket[<span class="sc">!</span>train,],<span class="at">type=</span><span class="st">"response"</span>) </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>glm.pred<span class="ot">=</span><span class="fu">ifelse</span>(glm.probs <span class="sc">&gt;</span><span class="fl">0.5</span>,<span class="st">"Up"</span>,<span class="st">"Down"</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>Direction<span class="fl">.2005</span><span class="ot">=</span>Smarket<span class="sc">$</span>Direction[<span class="sc">!</span>train]</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred,Direction<span class="fl">.2005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Direction.2005
+glm.pred Down Up
+    Down   77 97
+    Up     34 44</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(glm.pred<span class="sc">==</span>Direction<span class="fl">.2005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4801587</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Fit smaller model</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>glm.fit<span class="ot">=</span><span class="fu">glm</span>(Direction<span class="sc">~</span>Lag1<span class="sc">+</span>Lag2,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>Smarket,<span class="at">family=</span>binomial, <span class="at">subset=</span>train)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>glm.probs<span class="ot">=</span><span class="fu">predict</span>(glm.fit,<span class="at">newdata=</span>Smarket[<span class="sc">!</span>train,],<span class="at">type=</span><span class="st">"response"</span>) </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>glm.pred<span class="ot">=</span><span class="fu">ifelse</span>(glm.probs <span class="sc">&gt;</span><span class="fl">0.5</span>,<span class="st">"Up"</span>,<span class="st">"Down"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred,Direction<span class="fl">.2005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Direction.2005
+glm.pred Down  Up
+    Down   35  35
+    Up     76 106</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(glm.pred<span class="sc">==</span>Direction<span class="fl">.2005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5595238</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check accuracy rate</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="dv">106</span><span class="sc">/</span>(<span class="dv">76</span><span class="sc">+</span><span class="dv">106</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5824176</code></pre>
+</div>
+</div>
 
 
 </section>
